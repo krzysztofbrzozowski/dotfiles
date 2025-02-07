@@ -1,2 +1,2 @@
-configs/.config/nvim/init.lua
-configs/.tmux.conf
+.config/nvim/init.lua
+.tmux.conf

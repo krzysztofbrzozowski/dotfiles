@@ -1,33 +1,30 @@
 #!/bin/bash
 
-SOURCE_DIR="$PWD"
-TARGET_DIR="$HOME"
 CONFIG_FILE="configs_to_ln.txt"
+CONFIGS_DIR_LOCAL="configs"
 
-# Check if config file exists
-if [[ ! -f "$CONFIG_FILE" ]]; then
-  echo "Error: Config file '$CONFIG_FILE' not found!"
-  exit 1
-fi
+while IFS= read -r line; do
+    # Skip empty lines
+    [[ -z "$line" ]] && continue
 
-# Make dirs -p which contains actual config
-# e.g.
-# mkdir -p ~/.config/nvim/
-# later on make symlink of the config
+    # Remove 'configs/' prefix
+    REL_PATH="${line#${CONFIGS_DIR_LOCAL}/}"
+    TARGET="$HOME/$REL_PATH"
+    SOURCE="$PWD/$line"
 
-# Read each line from the config file
-while IFS= read -r file; do
-  # Ensure the file path is not empty
-  if [[ -n "$file" ]]; then
-    SOURCE_PATH="$SOURCE_DIR/$file"
-    TARGET_PATH="$TARGET_DIR/$(basename "$file")"
-    
-    # Check if source file exists
-    if [[ -f "$SOURCE_PATH" ]]; then
-      ln -sf "$SOURCE_PATH" "$TARGET_PATH"
-      echo "Symlink created for: $file"
+    # Check if it's a directory or file
+    if [[ "$REL_PATH" == */ ]]; then
+        # It's a directory, create it if it doesn't exist
+        mkdir -p "$TARGET"
     else
-      echo "Warning: Source file '$SOURCE_PATH' does not exist!"
+        # Ensure parent directory exists
+        DIRNAME="$(dirname "$TARGET")"
+        mkdir -p "$DIRNAME"
+
+        # Create a symlink pointing to the actual file in PWD
+        ln -sf "$SOURCE" "$TARGET"
     fi
-  fi
 done < "$CONFIG_FILE"
+
+echo "Symlinks created successfully."
+
