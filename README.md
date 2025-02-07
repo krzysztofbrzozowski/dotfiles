@@ -1,5 +1,5 @@
 ## Installation
-Install ripgrep
+### Install ripgrep
 
 MacOS
 ```
@@ -8,6 +8,11 @@ brew install ripgrep
 Ubuntu
 ```
 sudo apt-get install ripgrep
+```
+
+### Initialize dotfiles
+```
+./init.sh
 ```
 
 ## Some nvim 1O1s
