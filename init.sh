@@ -10,6 +10,11 @@ if [[ ! -f "$CONFIG_FILE" ]]; then
   exit 1
 fi
 
+# Make dirs -p which contains actual config
+# e.g.
+# mkdir -p ~/.config/nvim/
+# later on make symlink of the config
+
 # Read each line from the config file
 while IFS= read -r file; do
   # Ensure the file path is not empty
