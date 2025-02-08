@@ -14,6 +14,16 @@ sudo apt-get install ripgrep
 ```
 ./init.sh
 ```
+## Neovim-tree 101s
+### Open left tree
+```
+Ctrl-b
+```
+### Create new file
+```
+a
+```
+
 
 ## Some nvim 1O1s
 ### Open the file when you have already open nvim
