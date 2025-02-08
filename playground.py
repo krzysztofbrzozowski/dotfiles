@@ -1,9 +1,10 @@
 import curses
 import time
 
+
 def bounce_ball(stdscr):
     curses.curs_set(0)  # Hide the cursor
-    stdscr.nodelay(1)   # Non-blocking input
+    stdscr.nodelay(1)  # Non-blocking input
     stdscr.timeout(50)  # Control speed of animation
 
     height, width = stdscr.getmaxyx()
@@ -27,8 +28,9 @@ def bounce_ball(stdscr):
         time.sleep(0.05)  # Delay to control speed
 
         key = stdscr.getch()
-        if key == ord('q'):
+        if key == ord("q"):
             break  # Exit loop on 'q' press
+
 
 if __name__ == "__main__":
     curses.wrapper(bounce_ball)
