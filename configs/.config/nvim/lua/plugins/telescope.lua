@@ -11,18 +11,6 @@ return {
         defaults = {
 	  file_ignore_patterns = { "%.git/" },  -- Optional: Ignore .git folder
     	  hidden = true,  -- Show hidden files
-	  vimgrep_arguments = {
-	    'rg',
-	    '--color=never',
-		'--no-heading',
-      		'--with-filename',
-      		'--line-number',
-      		'--column',
-      		'--smart-case',
-      	        '--ignore',
-      		'--files',
-      		'--hidden',
-    		},
 	},
 	pickers = {
     	  find_files = {
