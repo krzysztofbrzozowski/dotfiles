@@ -1,18 +1,26 @@
 ## Installation
-### Install ripgrep
+### Install ripgrep (search tool), zoxide (better cd)
 
 MacOS
 ```
 brew install ripgrep
+brew install zoxide
 ```
 Ubuntu
 ```
 sudo apt-get install ripgrep
+apt install zoxide (or install via script, might be better reg documentation)
 ```
 
+### Add zoxide into the .bashrc or .zprofile
+```
+eval "$(zoxide init zsh)"
+alias cd="z"
+```
 ### Initialize dotfiles
 ```
 ./init.sh
+
 ```
 ## Neovim-tree 101s
 ### Open left tree

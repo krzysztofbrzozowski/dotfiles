@@ -11,7 +11,8 @@ config.color_scheme = 'Catppuccin Mocha'
 config.font_size = 13
 
 -- config.enable_tab_bar = false
-
 -- config.window_decorations = "RESIZE"
+
 config.window_background_opacity = 1.00
+
 return config
