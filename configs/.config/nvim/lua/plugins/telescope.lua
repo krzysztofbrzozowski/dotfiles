@@ -9,9 +9,11 @@ return {
     config = function()
       require("telescope").setup({
         defaults = {
-	    vimgrep_arguments = {
-      		'rg',
-      		'--color=never',
+	  file_ignore_patterns = { "%.git/" },  -- Optional: Ignore .git folder
+    	  hidden = true,  -- Show hidden files
+	  vimgrep_arguments = {
+	    'rg',
+	    '--color=never',
 		'--no-heading',
       		'--with-filename',
       		'--line-number',
@@ -22,6 +24,11 @@ return {
       		'--hidden',
     		},
 	},
+	pickers = {
+    	  find_files = {
+	  hidden = true  -- Ensure `find_files` shows hidden files
+    	  }
+  	},
 	extensions = {
           ["ui-select"] = {
             require("telescope.themes").get_dropdown({}),
