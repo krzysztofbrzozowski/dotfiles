@@ -33,6 +33,10 @@ a
     ```
     : Mason
     ```
+Show lsp installed
+```
+LspInfo
+```
 
 ## Some nvim 1O1s
 ### Open the file when you have already open nvim
@@ -61,4 +65,34 @@ I
 xyz
 Esc
 ```
+
+Visual select of word
+```
+v+i+w
+```
+Visual select where cursor starting
+```
+v+i
+```
+Copy the selection - yank
+```
+y
+```
+Paste selection
+```
+p
+```
+
+Line visual indent
+```
+V
+```
+When selected you can add tab or remove tab
+Firstly select everything you want with V and next use "<" to remove tabs, ">" to add tabs
+```
+<
+>
+```
+
+
 
