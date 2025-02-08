@@ -1,2 +1,5 @@
 [] fix tmux selcecting and copying
-[x] Telescope is not showing hidden folders
+[X] Telescope is not showing hidden folders
+[] Fix wizterm opt and cmd are some strange bindings
+[X] Tab indent is 8 spaces?
+[] Selecting multiline in text and adding indent -> typecraft showed in https://youtu.be/S-xzYgTLVJE?si=jsqIjozuJ20m_hej&t=349

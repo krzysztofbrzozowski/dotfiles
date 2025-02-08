@@ -24,6 +24,15 @@ Ctrl-b
 a
 ```
 
+## Stuff in nvim config
+- Lazy
+    ```
+    : Lazy
+    ```
+- Mason
+    ```
+    : Mason
+    ```
 
 ## Some nvim 1O1s
 ### Open the file when you have already open nvim
