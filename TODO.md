@@ -1,7 +1,7 @@
 [x] fix tmux selecting and copying
-[] Looks like rip grep with telescope not working again
-[X] Show what has been changed in the commit -> some plugin?
-[X] Telescope is not showing hidden folders
+[x] Looks like rip grep with telescope not working again
+[x] Show what has been changed in the commit -> some plugin?
+[x] Telescope is not showing hidden folders
 [] Fix wizterm opt and cmd are some strange bindings
-[X] Tab indent is 8 spaces?
+[x] Tab indent is 8 spaces?
 [] Selecting multiline in text and adding indent -> typecraft showed in https://youtu.be/S-xzYgTLVJE?si=jsqIjozuJ20m_hej&t=349
