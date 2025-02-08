@@ -11,6 +11,7 @@ Ubuntu
 ```
 sudo apt-get install ripgrep
 apt install zoxide (or install via script, might be better reg documentation)
+sudo apt install fzf
 ```
 
 ### Add zoxide into the .bashrc or .zprofile
