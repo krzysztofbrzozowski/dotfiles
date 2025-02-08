@@ -1,6 +1,6 @@
 import curses
 import time
-
+import t
 
 def bounce_ball(stdscr):
     curses.curs_set(0)  # Hide the cursor
