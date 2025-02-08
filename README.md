@@ -1,10 +1,11 @@
 ## Installation
-### Install ripgrep (search tool), zoxide (better cd)
+### Install ripgrep (search tool), zoxide (better cd), zfz (fuzzy search)
 
 MacOS
 ```
 brew install ripgrep
 brew install zoxide
+brew install zfz
 ```
 Ubuntu
 ```
@@ -17,6 +18,16 @@ apt install zoxide (or install via script, might be better reg documentation)
 eval "$(zoxide init zsh)"
 alias cd="z"
 ```
+If on macos add zfz stuff into .zshrc
+```
+cdd() {
+    cd "$(zoxide query -i)" || echo "No directory selected"
+}
+```
+
+
+
+
 ### Initialize dotfiles
 ```
 ./init.sh
