@@ -33,10 +33,20 @@ a
     ```
     : Mason
     ```
-Show lsp installed
-```
-LspInfo
-```
+    Show lsp installed
+    ```
+    LspInfo
+ 
+- Gitsigns
+    To see gitblame live
+    ```
+    : Gitsings toggle_current_line_blame
+    ```
+
+> [!TIP]
+> For any debugging messages type
+> ```
+> : messages
 
 ## Some nvim 1O1s
 ### Open the file when you have already open nvim
