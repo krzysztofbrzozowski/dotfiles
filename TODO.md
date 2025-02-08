@@ -8,3 +8,5 @@
 - [] Add Python LSP, linter and C LSP, linter and formatter, html linter formatter
 - [] Tmux config
 - [] Config alpha
+- [] Pyenv config
+- [] Make better README.md
