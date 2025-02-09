@@ -7,6 +7,6 @@
 - [x] Selecting multiline in text and adding indent -> typecraft showed in https://youtu.be/S-xzYgTLVJE?si=jsqIjozuJ20m_hej&t=349
 - [] Add Python LSP, linter and C LSP, linter and formatter, html linter formatter
 - [] Tmux config
-- [] Config alpha
+- [] Config alpha -> show mappings
 - [] Pyenv config
 - [] Make better README.md
