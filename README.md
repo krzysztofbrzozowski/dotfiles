@@ -10,8 +10,8 @@ brew install zfz
 Ubuntu
 ```
 sudo apt-get install ripgrep
-apt install zoxide (or install via script, might be better reg documentation)
-sudo apt install fzf
+apt install zoxide (install via script)
+sudo apt install fzf (install via script)
 ```
 
 ### Add zoxide into the .bashrc or .zprofile
@@ -26,7 +26,10 @@ cdd() {
 }
 ```
 
-
+### Install tpm for tmux
+```
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
 
 
 ### Initialize dotfiles
