@@ -30,7 +30,11 @@ cdd() {
 ```
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
+Reload configuration
+```
+Ctrl+b I
 
+```
 
 ### Initialize dotfiles
 ```
