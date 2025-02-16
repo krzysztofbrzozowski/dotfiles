@@ -1,4 +1,4 @@
-- [x] fix tmux selecting and copying
+ [x] fix tmux selecting and copying
 - [x] Looks like rip grep with telescope not working again
 - [x] Show what has been changed in the commit -> some plugin?
 - [x] Telescope is not showing hidden folders
@@ -9,4 +9,4 @@
 - [x] Tmux config
 - [] Config alpha -> show mappings
 - [] Pyenv config
-- [] Make better README.md
+- [x] Make better README.md
