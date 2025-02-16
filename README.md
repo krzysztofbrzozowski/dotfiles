@@ -1,3 +1,5 @@
+![how-nvim-looks-like-now.jpg](https://krzysztofbrzozowski.com/2025/02/04/sed-to-nvim.gif)
+
 ## Installation
 ### Install ripgrep (search tool), zoxide (better cd), zfz (fuzzy search)
 
@@ -10,11 +12,16 @@ brew install zfz
 Ubuntu
 ```
 sudo apt-get install ripgrep
-apt install zoxide (install via script)
-sudo apt install fzf (install via script)
+sudo apt install zoxide || install via script <- will be newer stuff
+sudo apt install fzf || install via script <- will be newer stuff
 ```
 
 ### Add zoxide into the .bashrc or .zprofile
+
+> [!TIP]
+> All of the configs for bash and zsh are working in this repo 
+> (configs/.config -> .zshrc + .zprofile or .bashrs)
+> So probably better run ./init.sh instead of fighting alone
 ```
 eval "$(zoxide init zsh)"
 alias cd="z"
@@ -129,6 +136,17 @@ Firstly select everything you want with V and next use "<" to remove tabs, ">" t
 ```
 <
 >
+```
+
+Go to first line
+```
+1G
+gg
+```
+
+Go to last line
+```
+G
 ```
 
 
