@@ -1,4 +1,4 @@
-![how-nvim-looks-like-now.jpg](https://krzysztofbrzozowski.com/2025/02/04/sed-to-nvim.gif)
+![how-nvim-looks-like-now.gif](https://krzysztofbrzozowski.com/media/2025/02/04/sed-to-nvim.gif)
 
 ## Installation
 ### Install ripgrep (search tool), zoxide (better cd), zfz (fuzzy search)
