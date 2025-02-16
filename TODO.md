@@ -5,8 +5,8 @@
 - [] Fix wizterm opt and cmd are some strange bindings
 - [x] Tab indent is 8 spaces?
 - [x] Selecting multiline in text and adding indent -> typecraft showed in https://youtu.be/S-xzYgTLVJE?si=jsqIjozuJ20m_hej&t=349
-- [] Add Python LSP, linter and C LSP, linter and formatter, html linter formatter
-- [] Tmux config
+- [x] Add Python LSP, linter and C LSP, linter and formatter, html linter formatter
+- [x] Tmux config
 - [] Config alpha -> show mappings
 - [] Pyenv config
 - [] Make better README.md
