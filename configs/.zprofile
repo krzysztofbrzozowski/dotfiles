@@ -10,3 +10,10 @@ alias cd="z"
 
 # fzf stuff
 source <(fzf --zsh)
+
+# Some of the bash scripts or binaries are mainly located in .bin
+# Need to add them to path
+PATH="${HOME}/.bin:${PATH}"
+
+# Obsidian Zettelkasten
+alias oo='cd $HOME/Documents/ZETTELKASTEN'

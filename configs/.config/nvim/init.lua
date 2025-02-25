@@ -23,3 +23,4 @@ require("lazy").setup({ { import = "plugins" }, { import = "plugins.lsp" } }, {
 })
 
 require("keymaps")
+require("workflows")

@@ -129,5 +129,6 @@ cdd() {
     cd "$(zoxide query -i)" || echo "No directory selected"
 }
 
-
+# Some of the bash scripts or binaries are mainly located in .bin
+PATH="${HOME}/.bin:${PATH}"
 
