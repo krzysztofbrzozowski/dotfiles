@@ -16,6 +16,7 @@ return {
             dashboard.button("p", "  Find project", ":Telescope projects <CR>"),
             dashboard.button("n", "  New file", ":ene <BAR> startinsert <CR>"),
             dashboard.button("k", "Keybindings", ":e ~/.config/nvim/lua/keymaps.lua<CR>"),
+            dashboard.button("w", "Workflow keybindings", ":e ~/.config/nvim/lua/workflows.lua<CR>"),
             dashboard.button("q", "Quit Neovim", ":qa<CR>"),
         }
 

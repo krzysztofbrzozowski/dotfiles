@@ -35,6 +35,7 @@ return {
 					or filetype == "css"
 					or filetype == "cpp"
 					or filetype == "h"
+					or filetype == "markdown"
 			end,
 
 			completion = {
