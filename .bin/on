@@ -6,8 +6,8 @@ if [ -z "$1" ]; then
 fi
 
 file_name=$(echo "$1" | tr ' ' '-')
-#formatted_file_name=$(date "+%Y-%m-%d")_${file_name}.md
-formatted_file_name=${file_name}.md
+formatted_file_name=$(date "+%Y_%m_%d")_${file_name}.md
+#formatted_file_name=${file_name}.md
 cd "$HOME/Documents/ZETTELKASTEN" || exit
-touch "inbox/${formatted_file_name}"
-nvim "inbox/${formatted_file_name}"
+touch "notes/${formatted_file_name}"
+nvim "notes/${formatted_file_name}"

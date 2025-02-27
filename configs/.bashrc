@@ -132,3 +132,5 @@ cdd() {
 # Some of the bash scripts or binaries are mainly located in .bin
 PATH="${HOME}/.bin:${PATH}"
 
+# Obsidian Zettelkasten
+alias oo='cd $HOME/Documents/ZETTELKASTEN'
