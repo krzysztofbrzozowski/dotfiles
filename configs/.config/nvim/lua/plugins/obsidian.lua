@@ -23,7 +23,7 @@ return {
 					path = os.getenv("HOME") .. "/Documents/ZETTELKASTEN",
 				},
 			},
-			notes_subdir = "inbox",
+			notes_subdir = "notes",
 			new_notes_location = "notes_subdir",
 
 			disable_frontmatter = true,
