@@ -19,6 +19,8 @@ sudo apt install fzf || install via script <- will be newer stuff
 Looks like sometimes on minimal server you have to install
 ```
 sudo apt update && sudo apt install build-essential
+sudo apt install nodejs
+sudo apt install unzip
 ```
 
 ### Add zoxide into the .bashrc or .zprofile

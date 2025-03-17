@@ -30,8 +30,8 @@ return {
 				-- Lua stuff, mainly for config
 				"lua_ls",
 				-- Webdev stuff
-				"html-lsp",
-				"css-lsp",
+				"html",
+				"cssls",
 				"tailwindcss",
 				"emmet_ls",
 				-- Python stuff
