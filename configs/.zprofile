@@ -5,7 +5,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 eval "$(pyenv init -)"
 
 # better cd
-eval "$(zoxide init zsh)"
+eval "$(zoxide init ${SHELL##*/})"
 alias cd="z"
 
 # fzf stuff
