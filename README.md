@@ -32,7 +32,7 @@ sudo apt install python3.12-venv
 > (configs/.config -> .zshrc + .zprofile or .bashrs)
 > So probably better run ./init.sh instead of fighting alone
 ```
-eval "$(zoxide init zsh)"
+eval "$(zoxide init ${SHELL##*/})"
 alias cd="z"
 ```
 If on macos add zfz stuff into .zshrc
