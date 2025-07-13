@@ -10,3 +10,5 @@
 - [] Config alpha -> show mappings
 - [] Pyenv config
 - [x] Make better README.md
+- [] Ctrl + shift + c instad od Ctrl +c in linux
+- [] Remove history limit in linux
