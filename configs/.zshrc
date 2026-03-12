@@ -4,11 +4,11 @@ cdd() {
 
 cm() {
     local original_dir="$PWD"
-    cd "scripts" || return 1
+    cd "$HOME/Documents/PROJECTS/SOFTWARE/dotfiles.nosync/scripts" || return 1
 
     echo "==> Setting up Python venv..."
-    if [ ! -d "venv" ]; then
-        python3 -m venv venv
+    if [ ! -f "venv/bin/activate" ]; then
+        python3 -m venv venv && venv/bin/pip install requests
     fi
 
     . venv/bin/activate

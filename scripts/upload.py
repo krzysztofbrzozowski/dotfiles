@@ -190,13 +190,26 @@ def process_markdown_with_images(md_file: Path, token: str) -> Optional[Path]:
     2. Find all local images in content
     3. Upload them
     4. Replace local paths with server URLs
-    5. Save as .original and create new version
+    5. Save local paths as *.local.md and write server-URL version as *.md
+
+    If a *.local.md file is provided as input, the output is written to the
+    corresponding *.md file (e.g. post.local.md -> post.md).
     """
     print_color(Colors.BLUE, f"\n📄 Processing markdown: {md_file}")
+
+    # Determine source / output / local-backup paths
+    is_local_file = md_file.name.endswith('.local.md')
+    if is_local_file:
+        base_stem = md_file.name[:-len('.local.md')]
+        output_file = md_file.with_name(base_stem + '.md')
+        local_file = md_file
+    else:
+        output_file = md_file
+        local_file = md_file.with_name(md_file.stem + '.local.md')
     
-    # Read original content
+    # Read source content
     content = md_file.read_text()
-    
+
     # Parse frontmatter
     metadata, markdown_content = parse_frontmatter(content)
     
@@ -229,7 +242,7 @@ def process_markdown_with_images(md_file: Path, token: str) -> Optional[Path]:
     
     if not local_images and not thumbnail_uploaded:
         print_color(Colors.YELLOW, "  No local images found, uploading as-is")
-        return md_file
+        return output_file
     
     print_color(Colors.BLUE, f"\n📤 Uploading {len(local_images)} content images...")
     
@@ -243,11 +256,10 @@ def process_markdown_with_images(md_file: Path, token: str) -> Optional[Path]:
         if result:
             replacements[original_path] = result['url']
     
-    # Create backup
-    backup_file = md_file.with_suffix(md_file.suffix + '.original')
-    if not backup_file.exists():
-        shutil.copy2(md_file, backup_file)
-        print_color(Colors.GREEN, f"\n✓ Original saved: {backup_file}")
+    # Save local-path backup (only when input is not already the *.local.md file)
+    if not is_local_file and not local_file.exists():
+        shutil.copy2(md_file, local_file)
+        print_color(Colors.GREEN, f"\n✓ Local paths saved: {local_file}")
     
     # Replace paths in content
     new_content = markdown_content
@@ -262,11 +274,11 @@ def process_markdown_with_images(md_file: Path, token: str) -> Optional[Path]:
     # Rebuild markdown with updated frontmatter
     final_content = rebuild_markdown_with_frontmatter(metadata, new_content)
     
-    # Write new version
-    md_file.write_text(final_content)
-    print_color(Colors.GREEN, f"✓ Updated markdown: {md_file}")
+    # Write server-URL version
+    output_file.write_text(final_content)
+    print_color(Colors.GREEN, f"✓ Updated markdown: {output_file}")
     
-    return md_file
+    return output_file
 
 def upload_memshard(md_file: Path, token: str) -> bool:
     """Upload markdown file as mem_shard"""
@@ -343,8 +355,8 @@ def upload_folder(folder_path: Path, token: str) -> Tuple[int, int]:
     """
     print_color(Colors.BLUE, f"\n📁 Uploading all mem_shards from: {folder_path}")
     
-    # Find all .md files
-    md_files = sorted(folder_path.glob('*.md'))
+    # Find all .md files, excluding *.local.md backups
+    md_files = sorted(f for f in folder_path.glob('*.md') if not f.name.endswith('.local.md'))
     
     if not md_files:
         print_color(Colors.YELLOW, "  No .md files found in folder")
