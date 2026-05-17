@@ -16,6 +16,7 @@ find "$CONFIGS_DIR" -type f -exec sh -c '
 ' _ {} \;
 
 
+
 if [ -d "$HOME/$CONFIGS_DIR" ]; then
     rm -rf "$HOME/$CONFIGS_DIR"
 fi
