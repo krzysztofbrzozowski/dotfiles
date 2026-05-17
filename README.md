@@ -57,6 +57,14 @@ Ctrl+b I
 ./init.sh
 
 ```
+Running `./init.sh` will also automatically back up `~/.ssh` (see below).
+
+### Backup SSH keys
+Backs up `~/.ssh` to `/Users/krzysztofbrzozowski/Documents/ssh` using `rsync`.
+Run manually at any time:
+```
+./backup_ssh.sh
+```
 ## Neovim-tree 101s
 ### Open left tree
 ```

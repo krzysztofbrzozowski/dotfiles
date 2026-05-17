@@ -47,3 +47,7 @@ fi
 
 echo "Symlinks created successfully."
 
+# Backup SSH keys
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+bash "$SCRIPT_DIR/backup_ssh.sh"
+
