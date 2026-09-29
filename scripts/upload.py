@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Universal upload script for mem_shards
-Handles absolute/relative paths, uploads images, and creates mem_shards from markdown
+Universal upload script for projects
+Handles absolute/relative paths, uploads images, and creates projects from markdown
 
 
 Usage:
@@ -101,13 +101,25 @@ def get_token() -> Optional[str]:
         print_color(Colors.RED, f"✗ Authentication failed: {e}")
         return None
 
+SUPPORTED_IMAGE_TYPES = {
+    '.jpg': 'image/jpeg',
+    '.jpeg': 'image/jpeg',
+    '.png': 'image/png',
+    '.gif': 'image/gif',
+}
+
 def upload_image(file_path: Path, alt_text: str, token: str) -> Optional[dict]:
     """Upload an image file to the server"""
+    mime_type = SUPPORTED_IMAGE_TYPES.get(file_path.suffix.lower())
+    if not mime_type:
+        print_color(Colors.RED, f"  ✗ Unsupported image format: {file_path.suffix} (supported: {', '.join(SUPPORTED_IMAGE_TYPES)})")
+        return None
+
     print_color(Colors.BLUE, f"  → Uploading image: {file_path.name}")
     
     try:
         with open(file_path, 'rb') as f:
-            files = {'image': (file_path.name, f, 'image/jpeg')}
+            files = {'image': (file_path.name, f, mime_type)}
             data = {'alt_text': alt_text}
             headers = {'Authorization': f'Token {token}'}
             
@@ -281,8 +293,8 @@ def process_markdown_with_images(md_file: Path, token: str) -> Optional[Path]:
     return output_file
 
 def upload_memshard(md_file: Path, token: str) -> bool:
-    """Upload markdown file as mem_shard"""
-    print_color(Colors.BLUE, f"\n🚀 Uploading mem_shard: {md_file.name}")
+    """Upload markdown file as project"""
+    print_color(Colors.BLUE, f"\n🚀 Uploading project: {md_file.name}")
     
     try:
         with open(md_file, 'rb') as f:
@@ -290,7 +302,7 @@ def upload_memshard(md_file: Path, token: str) -> bool:
             headers = {'Authorization': f'Token {token}'}
             
             response = requests.post(
-                f"{API_BASE_URL}/api/mem_shards/",
+                f"{API_BASE_URL}/api/projects/",
                 files=files,
                 headers=headers
             )
@@ -353,7 +365,7 @@ def upload_folder(folder_path: Path, token: str) -> Tuple[int, int]:
     Upload all .md files from a folder
     Returns (success_count, total_count)
     """
-    print_color(Colors.BLUE, f"\n📁 Uploading all mem_shards from: {folder_path}")
+    print_color(Colors.BLUE, f"\n📁 Uploading all projects from: {folder_path}")
     
     # Find all .md files, excluding *.local.md backups
     md_files = sorted(f for f in folder_path.glob('*.md') if not f.name.endswith('.local.md'))
@@ -409,7 +421,7 @@ def main():
     if len(sys.argv) < 2:
         print_color(Colors.RED, "Usage:")
         print_color(Colors.YELLOW, "  Upload image:     upload.py <image_file> [alt_text]")
-        print_color(Colors.YELLOW, "  Upload mem_shard: upload.py <markdown_file.md>")
+        print_color(Colors.YELLOW, "  Upload project: upload.py <markdown_file.md>")
         print_color(Colors.YELLOW, "  Upload folder:    upload.py -f <folder_path>")
         print_color(Colors.YELLOW, "\nEnvironment Selection:")
         print_color(Colors.YELLOW, "  Set MEMSHARD_ENV=local|stage|prod (default: local)")
